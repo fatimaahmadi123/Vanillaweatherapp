@@ -1,0 +1,72 @@
+.weather-app {
+  max-width: 700px;
+  margin: 0px auto;
+  padding: 0px 20px;
+  margin-top: 50px;
+}
+
+h1 {
+  color: #5e41a7;
+  font-size: 40px;
+  font-family: "Lobster", cursive;
+}
+h3 {
+  font-size: 30px;
+  font-weight: 100px;
+}
+h4 {
+  font-size: 16px;
+  font-family: "Varela Round", sans-serif;
+}
+h5 {
+  font-size: 14px;
+}
+.card {
+  background-color: #e2d0f9;
+}
+.col {
+  padding: 0%;
+  margin: auto;
+  display: block;
+}
+.days {
+  text-align: center;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.row {
+  margin: 0%;
+  padding: 0%;
+}
+ul {
+  list-style-type: none;
+  margin: 0%;
+  padding: 0%;
+}
+li {
+  text-transform: capitalize;
+}
+a {
+  color: black;
+}
+.btn {
+  border-radius: 2px;
+  margin: 0;
+  display: block;
+  background-color: #885df1;
+  border: 1px solid #885df1;
+  color: #fff;
+  font-size: 15px;
+  line-height: 22px;
+  padding: 10px 10px;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+button:hover {
+  color: black;
+  background: #fff;
+}
+.caption {
+  font-size: small;
+}
