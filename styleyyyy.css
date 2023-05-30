@@ -75,3 +75,11 @@ img {
   margin: 0;
   padding: 0;
 }
+.clearfix-weather .degree {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+.clearfix-weather .degree:hover {
+  text-decoration: none;
+}
