@@ -2,7 +2,7 @@ function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
   if (hours < 10) {
-    hours = `0${minutes}`;
+    hours = `0${hours}`;
   }
   let minutes = date.getMinutes();
   if (minutes < 10) {
@@ -102,6 +102,14 @@ function clicking(event) {
     axios.get(apiUrl).then(showTemperaturelocation);
   });
 }
+function displayfahrenheittemp(event) {
+  event.preventDefault();
+  let fahrenheittempreature = (14 * 9) / 5 + 32;
+  alert(fahrenheittempreature);
+}
 
 let button = document.querySelector("#mylocation");
 button.addEventListener("click", clicking);
+
+let fahrenheitlink = document.querySelector("#fahrenheit-link");
+fahrenheitlink.addEventListener("click", displayfahrenheittemp);
