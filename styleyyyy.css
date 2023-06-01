@@ -62,7 +62,7 @@ a {
   text-decoration: none;
   transition: all 200ms ease;
 }
-.search-button {
+#search-button {
   border-radius: 2px;
   margin: 0;
   display: block;
@@ -71,12 +71,29 @@ a {
   color: #fff;
   font-size: 15px;
   line-height: 22px;
-  padding: 0px 12px;
+
   text-decoration: none;
   transition: all 200ms ease;
 }
 
-button:hover {
+#search-button:hover {
+  color: black;
+  background: #fff;
+}
+#mylocation {
+  border-radius: 2px;
+  margin: 0;
+  display: block;
+  background-color: #885df1;
+  border: 1px solid #885df1;
+  color: #fff;
+  font-size: 15px;
+  line-height: 22px;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+#mylocation:hover {
   color: black;
   background: #fff;
 }
