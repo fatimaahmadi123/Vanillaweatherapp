@@ -20,6 +20,10 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+function displayforecast() {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = "forecast";
+}
 
 function search(event) {
   event.preventDefault();
@@ -43,6 +47,13 @@ searchCity("Berlin");
 let searchform = document.querySelector("#search-form");
 
 searchform.addEventListener("submit", search);
+
+function getForecast(coordinates) {
+  let apikey = "0adcta485017f6304b2012ac19o8bca3";
+  console.log(coordinates);
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apikey}&unit=metric`;
+  console.log(apiUrl);
+}
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -68,6 +79,7 @@ function showTemperature(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   celsiusTemperature = response.data.main.temp;
+  getForecast(response.data.coord);
 }
 
 function showTemperaturelocation(response) {
