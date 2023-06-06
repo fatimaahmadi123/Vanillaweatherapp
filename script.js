@@ -20,6 +20,12 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
+function formatday(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
 function displayforecast(response) {
   let forecast = response.data.daily;
 
@@ -33,7 +39,7 @@ function displayforecast(response) {
  <div class="col">
                 <div class="days" style="width: 5rem">
                   <div class="card-body">
-                    <h5 class="card-title">${forecastday.time}</h5>
+                    <h5 class="card-title">${formatday(forecastday.time)}</h5>
                     <img
                       id="icon-forcasrt"
                       src= "${forecastday.condition.icon_url}"
