@@ -20,25 +20,28 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-function displayforecast() {
+function displayforecast(response) {
+  let forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastday) {
     forecastHTML =
       forecastHTML +
       `
  <div class="col">
                 <div class="days" style="width: 5rem">
                   <div class="card-body">
-                    <h5 class="card-title">${day}</h5>
+                    <h5 class="card-title">${forecastday.time}</h5>
                     <img
                       id="icon-forcasrt"
-                      src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-01-512.png"
+                      src= "${forecastday.condition.icon_url}"
                       alt="clear"
                     />
-                    <p class="card-text">10°<br />-1°</p>
+                    <p class="card-text">${Math.round(
+                      forecastday.temperature.maximum
+                    )}°<br />${Math.round(forecastday.temperature.minimum)}°</p>
                   </div>
                 </div>
               </div>
@@ -57,7 +60,6 @@ function search(event) {
 
   searchCity(cityInput.value);
 }
-
 function searchCity(city) {
   let apiKey = "7ed26a6948c661d05fafe7355b41b2ec";
 
@@ -77,6 +79,7 @@ function getForecast(coordinates) {
   console.log(coordinates);
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apikey}&unit=metric`;
   console.log(apiUrl);
+  axios.get(apiUrl).then(displayforecast);
 }
 
 function showTemperature(response) {
@@ -167,5 +170,3 @@ fahrenheitlink.addEventListener("click", displayfahrenheittemp);
 
 let celsiusElement = document.querySelector("#celsius-temp");
 celsiusElement.addEventListener("click", displayCelsiustemp);
-
-displayforecast();
