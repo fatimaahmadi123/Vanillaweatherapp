@@ -22,7 +22,31 @@ function formatDate(timestamp) {
 }
 function displayforecast() {
   let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = "forecast";
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+ <div class="col">
+                <div class="days" style="width: 5rem">
+                  <div class="card-body">
+                    <h5 class="card-title">${day}</h5>
+                    <img
+                      id="icon-forcasrt"
+                      src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-01-512.png"
+                      alt="clear"
+                    />
+                    <p class="card-text">10°<br />-1°</p>
+                  </div>
+                </div>
+              </div>
+              `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function search(event) {
@@ -143,3 +167,5 @@ fahrenheitlink.addEventListener("click", displayfahrenheittemp);
 
 let celsiusElement = document.querySelector("#celsius-temp");
 celsiusElement.addEventListener("click", displayCelsiustemp);
+
+displayforecast();
