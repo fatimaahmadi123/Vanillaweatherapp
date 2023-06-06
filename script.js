@@ -82,9 +82,9 @@ searchform.addEventListener("submit", search);
 
 function getForecast(coordinates) {
   let apikey = "0adcta485017f6304b2012ac19o8bca3";
-  console.log(coordinates);
+
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.lon}&lat=${coordinates.lat}&key=${apikey}&unit=metric`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(displayforecast);
 }
 
@@ -150,29 +150,10 @@ function clicking(event) {
     let apiKey = "7ed26a6948c661d05fafe7355b41b2ec";
     let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
     let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-    console.log(apiUrl);
+
     axios.get(apiUrl).then(showTemperaturelocation);
   });
 }
-function displayfahrenheittemp(event) {
-  event.preventDefault();
-  let fahrenheittempreature = (celsiusTemperature * 9) / 5 + 32;
-  let citydegreeElement = document.querySelector("#city-degree");
-  citydegreeElement.innerHTML = Math.round(fahrenheittempreature);
-}
-function displayCelsiustemp(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#city-degree");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
 
 let button = document.querySelector("#mylocation");
 button.addEventListener("click", clicking);
-
-let fahrenheitlink = document.querySelector("#fahrenheit-link");
-fahrenheitlink.addEventListener("click", displayfahrenheittemp);
-
-let celsiusElement = document.querySelector("#celsius-temp");
-celsiusElement.addEventListener("click", displayCelsiustemp);
